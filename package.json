@@ -1,0 +1,11 @@
+{
+  "name": "myREPLGame",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Astridmassuh/myReplGame.git",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^2.0.4",
+    "readline-sync": "^1.4.10"
+  }
+}
