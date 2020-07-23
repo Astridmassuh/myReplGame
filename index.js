@@ -7,6 +7,7 @@ const maxRange = 10;
 let gameover = false;
 
 let lose = () => {
+  console.log("OH-NOOOOOoo.... Wa-hoo...\nYou lose ;_;");
   let action = prompt.question("\nDo you want to try again or game over? ");
   if (action === "try again"){
     console.log("Way to go!");
@@ -24,10 +25,10 @@ let lose = () => {
 let explore = () => {
   let randomNumber = Math.floor(Math.random() * 10 + 1);
   if (randomNumber > 6){
-    console.log("found a treasure chest");  
+    console.log("Found a treasure chest!!\n");  
   }
   else {
-    console.log("found nothing");
+    console.log("Found nothing :(!\n");
   }
 }
 
@@ -43,6 +44,7 @@ let combat = (enemy, option) => {
 }
 
 let game = () => {
+  isExplore = false;
   steps = 0
   boswerChild = " " 
   //game header 
@@ -74,12 +76,17 @@ but first you will have to defeat his 2 children.\n");
   }
 
   if(gameover === false){
-    console.log('Thats amazing Mario, here’s a star!!\n'); 
+    console.log('\nThats amazing Mario, here’s a star!!\n'); 
+    console.log(`You still have ${boswerChild} to fight.`);
   }
 
   while (steps === 1 && gameover === false){
-    console.log(`You still have ${boswerChild} to fight.`);
-    let action = prompt.question(`What will you do, explore the castle or fight ${boswerChild}? `);
+    let action;
+    if (isExplore === false){
+      action = prompt.question(`What will you do, explore the castle or fight ${boswerChild}? `);
+    } else{
+      action = `${boswerChild}`;
+    }
 
     switch(action.toLowerCase()){
       case "wendy":
@@ -94,7 +101,7 @@ but first you will have to defeat his 2 children.\n");
         break;
       case "explore":
         explore();
-        step++;
+        isExplore = true;
         break;
       default:
         console.log("Its a-me Mario! Wa-hoo... ");
@@ -104,7 +111,7 @@ but first you will have to defeat his 2 children.\n");
   }
 
   if(gameover === false){
-    console.log('Thats amazing Mario, here’s a star!!!\n\n'); 
+    console.log('\nThats amazing Mario, here’s a star!!!\n\n'); 
   }
 
   while (steps === 2 && gameover === false){
@@ -131,7 +138,7 @@ but first you will have to defeat his 2 children.\n");
   }
 
   if(gameover === false){
-    console.log("You saved the princess! Congradulations!")
+    console.log("You saved the princess! Congratulations!")
   }
 }
 game()
